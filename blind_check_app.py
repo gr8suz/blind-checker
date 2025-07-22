@@ -14,10 +14,12 @@ VIOLATION_RULES = {
 def detect_violations(text):
     results = []
     for category, patterns in VIOLATION_RULES.items():
-        for keyword in patterns:
-            if re.search(keyword, text):
-                results.append((category, keyword))
+        for pattern in patterns:
+            matches = re.findall(pattern, text)
+            for match in matches:
+                results.append((category, match))  # 실제 발견된 단어로 결과 저장
     return results
+
 
 st.title("🔍 NRC 자기소개서 블라인드 체크기")
 st.write("경제인문사회연구회 자기소개서에서 블라인드 채용 기준 위반 항목이 포함되었는지 자동으로 점검합니다.")
