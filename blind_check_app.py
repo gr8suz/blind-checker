@@ -50,6 +50,8 @@ def detect_violations(text):
 # Streamlit UI
 st.title("🔍 NRC 자기소개서 블라인드 체크기")
 st.write("경제인문사회연구회 자기소개서에서 블라인드 채용 기준 위반 항목이 포함되었는지 자동으로 점검합니다.")
+with st.expander("📌 블라인드 채용 기준 보기 (클릭하여 펼치기/닫기)"):
+    st.image("blind.jpg", caption="경제인문사회연구회 블라인드 채용 기준 요약", use_column_width=True)
 
 tab1, tab2 = st.tabs(["📄 직접 입력", "📎 PDF 업로드"])
 
